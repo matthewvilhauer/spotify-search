@@ -38,8 +38,39 @@
             <input type="hidden" name="market" value="US">
             <input type="submit" value="Go!" id=search class="btn btn-success">
         </form>
-        <div id="searchResults"></div>
-        <div id="results"></div>
+
+        <div class="loading">
+          <img src="images/loading.gif">
+        </div>
+
+        <div id="results">
+          <script id="tracks-template" type="text/x-handlebars-template">
+            {{#each tracks}}
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <img src="{{album.images.[1].url}}">
+                  </div>
+                  <div class="col-sm-9">
+                    <div class="col-sm-3">
+                      <p>{{name}}</p>
+                    </div>
+                    <div class="col-sm-3">
+                      <p>{{artists.0.name}}</p>
+                    </div>
+                    <div class="col-sm-3">
+                      <p>{{album.name}}</p>
+                    </div>
+                    <div class="col-sm-3">
+                      <a class="btn btn-success" href="{{preview_url}}">Listen</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {{/each}}
+          </script>
+
+        </div>
       </div>
     </div>
   </div>
